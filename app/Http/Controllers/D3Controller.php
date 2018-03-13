@@ -192,6 +192,7 @@ class D3Controller extends Controller
         //레퍼러 체크
         $referer = $request->headers->get('referer');
 
+        //view data
         return view('profile')->with([
             'server' => $server,
             'battleTag' => $return['battleTag'],
