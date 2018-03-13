@@ -1,0 +1,573 @@
+
+#page-top { z-index: 99999;}
+.modal-open { padding-right: 0px !important; }
+
+/* loading css */
+.loader, .loader:before, .loader:after { border-radius: 50%; width: 2.5em; height: 2.5em; -webkit-animation-fill-mode: both; animation-fill-mode: both; -webkit-animation: load7 1.8s infinite ease-in-out; animation: load7 1.8s infinite ease-in-out; }
+.loader { color: #ffffff; font-size: 10px; margin: 80px auto; position: relative; text-indent: -9999em; -webkit-transform: translateZ(0); -ms-transform: translateZ(0); transform: translateZ(0); -webkit-animation-delay: -0.16s; animation-delay: -0.16s; }
+.loader:before, .loader:after { content: ''; position: absolute; top: 0; }
+.loader:before { left: -3.5em; -webkit-animation-delay: -0.32s; animation-delay: -0.32s; }
+.loader:after { left: 3.5em; }
+@-webkit-keyframes load7 {
+    0%, 80%, 100% { box-shadow: 0 2.5em 0 -1.3em; }
+    40% { box-shadow: 0 2.5em 0 0; }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% { box-shadow: 0 2.5em 0 -1.3em; }
+  40% { box-shadow: 0 2.5em 0 0; }
+}
+
+/* modal */
+.modal-dialog { margin:25px; max-width:310px !important; margin-left:auto !important; margin-right:auto !important;  }
+
+/*
+.modal { text-align: center; }
+@media screen and (min-width: 768px) {
+        .modal:before { display: inline-block; vertical-align: middle; content: " "; height: 100%; }
+}
+.modal-dialog { display: inline-block; text-align: left; vertical-align: middle; }
+*/
+/* pager */
+.pager { margin:0 !important; }
+
+/* 직업별 영웅 이미지 */
+ .hero-portrait { display:block; position: relative; width:83px; height:1px; padding-top:65px; overflow:hidden; background:url(/img/hero-nav-portraits.jpg) no-repeat; }
+ .hero-portrait .small-seasonal-leaf { position: absolute; bottom: 0; right: 1px; }
+ .barbarian0 .hero-portrait { background-position:0 0; }
+ .barbarian1 .hero-portrait { background-position:-83px 0; }
+ .crusader0 .hero-portrait { background-position:0 -330px; }
+ .crusader1 .hero-portrait { background-position:-83px -330px; }
+ .demon-hunter0 .hero-portrait { background-position:0 -66px; }
+ .demon-hunter1 .hero-portrait { background-position:-83px -66px; }
+ .monk0 .hero-portrait { background-position:0 -132px; }
+ .monk1 .hero-portrait { background-position:-83px -132px; }
+ .necromancer0 .hero-portrait { background-position:0 -395px; }
+ .necromancer1 .hero-portrait { background-position:-83px -395px; }
+ .witch-doctor0 .hero-portrait { background-position:0 -198px; }
+ .witch-doctor1 .hero-portrait { background-position:-83px -198px; }
+ .wizard0 .hero-portrait { background-position:0 -264px; }
+ .wizard1 .hero-portrait { background-position:-83px -264px; }
+
+.icon-frame { display: inline-block; overflow: hidden; background-color: black; padding: 1px; border-left: 1px solid #3a2912; border-right: 1px solid #59411c; border-bottom: 1px solid #463419; border-top: 1px solid #574320; border-radius: 2px; box-shadow: 0 0 5px #000; }
+.rank-number { position:absolute !important; left:0; top:0; }
+
+ /* seasonal hero leaf icon */
+ .small-seasonal-leaf { display: inline-block; width: 15px; height: 21px; background: url("/img/seasonal-leaf.png") -24px -2px no-repeat; }
+ .large-seasonal-leaf { display: inline-block; width: 20px; height: 27px; background: url("/img/seasonal-leaf.png") -2px -2px no-repeat; }
+
+ /* cursor*/
+.pointer {cursor: pointer;}
+
+.hide { display: none; }
+.show { display: block; }
+/* color */
+.color-2c3 { color: #2c3e50 !important; }
+.color-909091 { color: #909091 !important; }
+.bg-18c { background-color: #18bc9c!important; }
+.bold { font-weight: 700;}
+.fsize-11 { font-size: 11px; }
+.fsize-14 { font-size: 14px; }
+.fsize-18 { font-size: 18px; }
+.text-danger { color:red; }
+.text-center { text-align:center !important; }
+.color-f3e { color: #F3E6D0 !important; }
+.header-3, .header-3 a { font: 13px; color: #F3E6D0; }
+
+/* margin, padding */
+.mt-0 { margin-top: 0 !important; }
+.mb-0 { margin-bottom: 0 !important; }
+.mb-5 { margin-bottom: 3rem !important; }
+.mb-10 { margin-bottom: 10px !important; }
+.mt-5 { margin-top: 3rem !important; }
+.mt-10 { margin-top: 10px !important; }
+.mt-20 { margin-top: 20px !important; }
+.mt-30 { margin-top: 30px !important; }
+.mt-50 { margin-top: 50px !important; }
+.mt-70 { margin-top: 70px !important; }
+.ml-10 { margin-left: 10px !important; }
+.mr-10 { margin-right: 10px !important; }
+.pt-10 { padding-top: 10px !important; }
+.pt-15 { padding-top: 15px !important; }
+.pt-20 { padding-top: 20px !important; }
+.pb-2 { padding-bottom: .5rem !important; }
+.pl-5 { padding-left: 5px !important; }
+.pl-15 { padding-left: 15px !important; }
+.pl-20 { padding-left: 20px !important; }
+.pl-25 { padding-left: 25px !important; }
+.pl-30 { padding-left: 30px !important; }
+.pl-0 { padding-left: 0px !important; }
+.pr-0 { padding-right: 0px !important; }
+.pr-15 { padding-right: 15px !important; }
+
+.fr { float: right !important; }
+
+.input-control { display: inline;  padding: .375rem .75rem; color: #495057; width:80%}
+
+/* header */
+nav { font-weight: 700; background-color: #2c3e50!important; padding-top: 1rem; padding-bottom: 1rem; }
+nav .logo { color:#fff; font-size:1.5em; letter-spacing: .0625rem; }
+nav .nav-container { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; padding:.5rem 1rem; margin-right:auto; margin-left:auto; }
+
+@media (min-width:350px) {
+    .complete-time { display: none; }
+    .rank-title { display:none }
+}
+
+@media (min-width:576px) {
+    nav .nav-container, .container { max-width:540px; }
+    .complete-time { display: none; }
+    .rank-title { display:none }
+}
+@media (min-width:768px) {
+    nav .nav-container, .container { max-width:720px; }
+    .complete-time { display: block; }
+    .rank-title { display:inline; }
+
+}
+@media (min-width:992px) {
+    nav .nav-container, .container { max-width:720px; }
+    .complete-time { display: block; }
+    .rank-title { display:inline; }
+
+}
+@media (min-width:1200px) {
+    nav .nav-container, .container { max-width:720px; }
+    .complete-time { display: block; }
+    .rank-title { display:inline; }
+
+}
+
+a:hover, :focus, :active { text-decoration: none;}
+
+/* .btn { color:#fff; background-color: #18bc9c; border:1px solid transparent; }
+.btn-gray { color:#666 !important; background-color: #fff !important; border:1px solid #666 !important; }
+.btn:hover,
+.btn:focus,
+.btn:active { color:#fff !important; background-color: #149d83 !important; border:1px solid transparent !important; }
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color:#fff !important; background-color: #18bc9c !important; border:1px solid transparent !important;
+} */
+
+.button-game-area { text-align:right; width:320px; }
+.button-game { display: inline-block; font-size: 13px; line-height: 40px; padding: 0 3px; margin-bottom: 10px; position: relative; text-align: center;  }
+.button-game a { color: #ad835a; }
+.button-game .button-game-bg-left { background: url('/img/button-game-sprite.png') no-repeat 0 -89px; height:40px; left:0; position: absolute; top: 0; width: 41px; z-index: 1; }
+.button-game .button-game-bg-mid { background: url('/img/button-game-sprite.png')repeat-x 0 0; color: #f3aa55; display: block; font-family: "Exocet Blizzard Light", "Palatino Linotype", "Times", serif; padding: 0 42px; position: relative; }
+.button-game .button-game-bg-mid > span { position: relative; z-index: 1; }
+.button-game .button-game-bg-right { background: url('/img/button-game-sprite.png')no-repeat 0 -132px; height: 40px; position: absolute; right: 0; top: 0; width: 41px; z-index: 1; }
+
+.btn-close-a { z-index: 1120; position: absolute; right: -10px; top: 0px; }
+.btn-close { width: 24px; height: 24px; display: inline-block; vertical-align: middle; background: url('/img/sprite.png') no-repeat; background-position: 0 -156px; font-size: 1px; }
+
+nav .nav-container .navbar-side { display:none; flex-basis: 100%; flex-grow: 1; align-items: center; padding-top:2rem; }
+
+nav .nav-container .navbar-side-menu { color:#fff; display: flex; flex-direction: column; padding-left: 0; margin-bottom: 0; list-style: none; }
+nav .nav-container .navbar-side-menu li { padding-top: 1rem; padding-bottom: 1rem; letter-spacing: .0625rem; }
+
+
+/* index */
+.container { margin-top:2rem; margin-left: auto; margin-right:auto; padding-left:15px; padding-right: 15px;}
+.star-area { width:100%; height:40px; text-align: center; }
+h2 { font-weight: 700; }
+hr.star-white { max-width: 320px; border-color: #796d55; padding:0; border-top: solid .25rem; margin-top:2.5rem; text-align:center; margin:auto; }
+hr.star-dark { max-width: 320px; border-color: #2c3e50; padding:0; border-top: solid .25rem; margin-top:2.5rem; text-align:center; margin:auto; }
+.star-icon { color: #2c3e50; font-size: 32px; background-color: #f5f8fa; padding:0 4px; position:relative; top:-45px;}
+.star-icon-white { color: #c7b377; font-size: 32px; background-color: #171410; padding:0 10px; position:relative; top:-45px;}
+
+/* hr.star-dark::after { color:#2c3e50; background-color: #fff; position:relative; top:-.8em; display: inline-block; padding:0 .25em; content: '\f002'; font-family: 'FontAwesome'; font-size: 2em;} */
+
+
+.floating-label-form-group { position: relative; border-bottom:1px solid #e9ecef; }
+.floating-label-form-group input { font-size:1.5em; position: relative; z-index: 1; padding-right: 0; padding-left: 0; resize: none; border:none; border-radius: 0; background: 0 0; box-shadow: none !important; }
+.floating-label-form-group label { font-size:.85em; position: relative; z-index: 0; top:2em; display: block; margin:0; vertical-align: baseline; opacity: 0; }
+.form-control { display: block; width: 100%; padding: .375rem .75rem; color:#495057; }
+
+.control-group { margin-left:auto !important; margin-right:auto !important; position: relative; width: 100%; min-height: 1px; padding-left: 15px; padding-right: 15px; }
+
+/* profile */
+.heroesInfo .jewel-info { position:relative;display:inline-block; }
+.heroesInfo .jewel-info .jewel-level { position:absolute; top:30px; left:5px; color: #a791c2;}
+
+
+/* Heroes */
+#heroes { background-color: #1b1713; }
+.heroes .battleTag { color:#c7b377;}
+.heroes .large-seasonal-leaf { vertical-align:bottom; }
+.heroes .class-name { font-size:14px; }
+
+.div-gear-slots { width:305px; height:460px; padding-top:30px; margin-left:auto !important; margin-right:auto !important; }
+.gear-slots { margin: 0 0 0 0px; position: relative; z-index: 3; width: 305px; height: 425px; list-style: none; margin-left:auto !important; margin-right:auto !important; }
+.gear-slots li { position: absolute; display: block; outline: none; text-align: center; }
+/* .gear-slots li .slot-link { display: block; height: 86px; width: 64px; margin: 1px; } */
+.gear-slots li .image { display: block; width: 100%; height:100%; overflow: hidden; }
+.gear-slots li .image img { position: relative; }
+.gear-slots li .sockets-wrapper { width: 100%; height: 100%; display: block; position: absolute; top: 0; left: 0; opacity: 0.8;}
+.gear-slots li .sockets-wrapper .sockets-align { display: table-cell; vertical-align: middle; width: 66px; height: 88px; }
+.gear-slots li .sockets-wrapper .socket { display: inline-block; vertical-align: middle; width: 32px; height: 32px; text-align: center; position: relative; left:1px; background: url('https://kr.battle.net/d3/static/images/profile/hero/skill-overlays.png') 0 -71px no-repeat; }
+.gear-slots li .sockets-wrapper .socket .gem { margin: 6px auto 0; width: 20px; height: 20px; }
+
+.gear-slots .head { z-index: 12; top:4px; left: 121px; width: 66px; height: 66px;  }
+.gear-slots .torso { z-index: 13; top:74px; left: 113px; width: 82px; height: 115px;  }
+.gear-slots .torso .d3-icon .icon-item-inner { width: 78px; height: 111px; }
+.gear-slots .feet { z-index: 8; bottom:14px; left: 121px; width: 66px; height: 88px;  }
+.gear-slots .hands { z-index: 9; top:127px; left: 13px; width: 66px; height: 88px;  }
+.gear-slots .shoulders { z-index: 10; top:28px; left: 39px; width: 66px; height: 88px;  }
+.gear-slots .legs { z-index: 11; bottom:106px; left: 121px; width: 66px; height: 88px;  }
+.gear-slots .bracers { z-index: 3; top:127px; right: 10px; width: 66px; height: 88px;  }
+.gear-slots .mainHand { z-index: 6; bottom:13px; left: 13px; width: 66px; height: 130px;  }
+.gear-slots .offHand { z-index: 5; bottom:13px; right: 10px; width: 66px; height: 130px;  }
+.gear-slots .offHand .d3-icon .icon-item-inner, .gear-slots .mainHand .d3-icon .icon-item-inner { width: 62px; height: 126px; }
+.gear-slots .waist { z-index: 4; top:193px; left: 113px; width: 82px; height: 34px; }
+.gear-slots .waist .d3-icon .icon-item-inner { width: 78px; height: 30px; }
+.gear-slots .rightFinger { z-index: 7; bottom:156px; right:22px; width: 42px; height: 42px;  }
+.gear-slots .leftFinger { z-index: 2; bottom:156px; left:25px; width: 42px; height: 42px;  }
+.gear-slots .leftFinger .d3-icon .icon-item-inner, .gear-slots .rightFinger .d3-icon .icon-item-inner { width: 38px; height: 38px; }
+.gear-slots .neck { z-index: 1; top:48px; right:44px; width: 56px; height: 56px;  }
+.gear-slots .neck .d3-icon .icon-item-inner { width: 52px; height: 52px; }
+
+.gear-slots .d3-icon { position: absolute; top:0; left: 0; display: block; }
+.gear-slots .d3-icon .icon-item-inner { display: block; height: 84px; width: 62px;}
+.gear-slots .d3-icon-item { border: 1px solid black; background: no-repeat 50% 100%; border-radius: 4px; }
+.gear-slots .d3-icon-item-green { border-color: #87a73d; background-image: url('/img/green.png'); }
+.gear-slots .d3-icon-item-orange { border-color: #c29337; background-image: url('/img/orange.png'); }
+.gear-slots .d3-icon-item-blue { border-color: #6ba9ba; background-image: url('/img/blue.png'); }
+.gear-slots .d3-icon-item-yellow { border-color: #b1a73c; background-image: url('/img/yellow.png'); }
+.gear-slots .d3-icon-item-white { border-color: #513f2e; background-image: url('/img/brown.png'); }
+
+
+
+/* slot-body */
+.gear-slots .head .d3-icon .icon-item-inner { width:62px; height: 62px; display: block; }
+.gear-slots .head .image { overflow: visible; }
+.gear-slots .head .image img { top:-31px; }
+.gear-slots .head .sockets-wrapper .sockets-align { width: 66px; height: 66px; }
+.gear-slots .neck, .gear-slots .neck .sockets-wrapper .sockets-align { width: 56px; height: 56px; }
+.gear-slots .neck .image img { width: 52px; height: 52px; top: 1px; }
+.gear-slots .torso, .gear-slots .torso .sockets-wrapper .sockets-align { width: 82px; height: 115px; }
+.gear-slots .torso .image img { top:-25px; left: -1px; }
+.gear-slots .shoulders .image img { top: -20px; }
+.gear-slots .hands .image { overflow: visible; }
+.gear-slots .hands .image img { top: -20px; }
+.gear-slots .waist .image img { top: -15px; }
+.gear-slots .bracers .image { overflow: visible; }
+.gear-slots .bracers .image img { top: -20px; }
+.gear-slots .legs .image img { top: -20px; }
+.gear-slots .feet .image { overflow: visible; }
+.gear-slots .feet .image img { top: -20px; }
+.gear-slots .offHand, .gear-slots .mainHand, .gear-slots .offHand .sockets-wrapper .sockets-align, .gear-slots .mainHand .sockets-wrapper .sockets-align { width: 66px; height: 130px; }
+
+/* 악세사리 */
+.gear-slots .neck, .gear-slots .neck .sockets-wrapper .sockets-align { width: 56px; height: 56px; }
+.gear-slots .leftFinger .image img { top: -12px; left: -12px; }
+.gear-slots .leftFinger .slot-link { width: 40px; height: 40px; }
+.gear-slots .rightFinger .image img { top: -12px; left: -12px; }
+.gear-slots .leftFinger, .gear-slots .rightFinger, .gear-slots .leftFinger .sockets-wrapper .sockets-align, .gear-slots .rightFinger .sockets-wrapper .sockets-align { width: 42px; height: 42px; }
+
+
+/* 장비상세 */
+.ui-tooltip-d3 { opacity: 1; }
+.ui-tooltip { background: #1d180e; padding: 1; border: 1px solid #322a20; max-width: 320px; border-radius: 2px; position: absolute; z-index: 900; width: auto; height: auto; }
+/*.ui-tooltip .tooltip-content { background: black; padding: 10px; color: #CFB991; font-size: 12px; width: auto; height: auto; }*/
+.ui-tooltip .tooltip-content { background: black; padding: 10px; color: #CFB991; font-size: 12px; width: auto; height:auto;  }
+
+.d3-tooltip-item-wrapper .d3-tooltip-item-wrapper { positon: relative; }
+.d3-tooltip-item-wrapper .d3-tooltip-item-border { display: none; position: absolute; }
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-AncientLegendary .d3-tooltip-item-border,
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-PrimalAncientLegendary .d3-tooltip-item-border {
+	display: block;
+	height: 100%;
+	background-repeat: repeat-y;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-AncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-left {
+	background-image: url("/img/Ancient-Frame-LeftBorder-2.png");
+	left: -20px;
+	width: 20px;
+	z-index: 1000;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-PrimalAncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-left {
+	background-image: url("/img/PrimalAncient-Frame-LeftBorder.png");
+	left: -20px;
+    bottom:5px;
+	width: 20px;
+	z-index: 1000;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-AncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-right {
+	background-image: url("/img/Ancient-Frame-RightBorder-2.png");
+	right: -20px;
+	width: 20px;
+	z-index: 1000;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-PrimalAncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-right {
+	background-image: url("/img/PrimalAncient-Frame-RightBorder.png");
+    bottom:10px;
+	right: -20px;
+	width: 20px;
+	z-index: 1000;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-AncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-top {
+	background-image: url("/img/Ancient-Frame-TopBorder-2.png");
+	background-position: center;
+	top: -22px;
+	height: 22px;
+	width: 100%;
+	z-index: 1000;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-PrimalAncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-top {
+	background-image: url("/img/PrimalAncient-Frame-TopBorder.png");
+	background-position: center;
+	top: -26px;
+    left: 5px;
+	height: 39px;
+	width: 100%;
+	z-index: 1000;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-AncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-bottom {
+	background-image: url("/img/Ancient-Frame-BottomBorder-2.png");
+	background-position: center;
+	bottom: -26px;
+	height: 26px;
+	width: 100%;
+	z-index: 1000;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-PrimalAncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-bottom {
+	background-image: url("/img/PrimalAncient-Frame-BottomBorder.png");
+	background-position: center;
+    left:10px;
+	bottom: -31px;
+	height: 31px;
+	width: 100%;
+	z-index: 1000;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-AncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-top-left {
+	background-image: url("/img/Ancient-Frame-TopLeftBorder-2.png");
+	background-position: center;
+	top: -5px;
+	left: -10px;
+	height: 26px;
+	width: 26px;
+	z-index: 1010;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-PrimalAncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-top-left {
+	background-image: url("/img/PrimalAncient-Frame-TopLeftBorder.png");
+	top: -22px;
+	left: -11px;
+	height: 35px;
+	width: 27px;
+	z-index: 1010;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-AncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-bottom-left {
+	background-image: url("/img/Ancient-Frame-BottomLeftBorder-2.png");
+	background-position: center;
+	bottom: -7px;
+	left: -10px;
+	height: 26px !important;
+	width: 26px !important;
+	z-index: 1010;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-PrimalAncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-bottom-left {
+	background-image: url("/img/PrimalAncient-Frame-BottomLeftBorder.png");
+	bottom: -20px;
+	left: -11px;
+	height: 36px !important;
+	width: 31px !important;
+	z-index: 1010;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-AncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-top-right {
+	background-image: url("/img/Ancient-Frame-TopRightBorder-2.png");
+	background-position: center;
+	top: -5px;
+	right: -10px;
+	height: 26px !important;
+	width: 26px !important;
+	z-index: 1010;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-PrimalAncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-top-right {
+	background-image: url("/img/PrimalAncient-Frame-TopRightBorder.png");
+	top: -25px;
+	right: -11px;
+	height: 37px !important;
+	width: 36px !important;
+	z-index: 1010;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-AncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-bottom-right {
+	background-image: url("/img/Ancient-Frame-BottomRightBorder-2.png");
+	background-position: center;
+	bottom: -8px;
+	right: -9px;
+	height: 26px !important;
+	width: 26px !important;
+	z-index: 1010;
+}
+.d3-tooltip-item-wrapper.d3-tooltip-item-wrapper-PrimalAncientLegendary .d3-tooltip-item-border.d3-tooltip-item-border-bottom-right {
+	background-image: url("/img/PrimalAncient-Frame-BottomRightBorder.png");
+	bottom: -14px;
+	right: -11px;
+	height: 34px !important;
+	width: 40px !important;
+	z-index: 1010;
+}
+
+
+
+.ko-kr .d3-tooltip .tooltip-head h3 { font-family: Kodia, Dotum; }
+.d3-tooltip { padding: 2px; color:#c7b377; }
+.d3-tooltip * { margin: 0; padding: 0; background: none; }
+.d3-tooltip ul { list-style-type: none; }
+.d3-tooltip p { margin: 10px 0 0 0; }
+.d3-tooltip p:first-child { margin-top: 0; }
+
+
+.d3-tooltip .tooltip-head { height: 36px; width: 310px; padding: 0 15px; background: url('/img/tooltip-title.jpg') no-repeat; }
+.d3-tooltip .tooltip-head h3 { font: 20px "Palatino Linotype", "Times", serif; height: 40px; line-height: 40px; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.d3-tooltip .tooltip-head-orange { background-position: 0 -137px; }
+.d3-tooltip .tooltip-head-yellow { background-position: 0 -102px; }
+.d3-tooltip .tooltip-head-blue { background-position: 0 -68px; }
+.d3-tooltip .tooltip-head-white { background-position: 0 -34px; }
+.d3-tooltip .tooltip-head-green, .d3-tooltip .tooltip-head-teal { background-position: 0 -206px; }
+.d3-tooltip .d3-tooltip-item-wrapper-PrimalAncientLegendary .tooltip-head-orange { background-position: 0 -241px; }
+.d3-tooltip .d3-tooltip-item-wrapper-PrimalAncientLegendary .tooltip-head-green { background-position: 0 -275px; }
+
+.d3-tooltip .value { color: white; }
+.d3-tooltip .subtle { color: #7B6D55; display: block; }
+
+.d3-tooltip .flavor { font-size: 16px; color: #AD835A; font-style: italic; }
+.d3-tooltip .tooltip-body { position: relative; padding: 10px; }
+.d3-tooltip .tooltip-body.skill-extension { padding-left: 47px; min-height: 52px; position: relative; }
+.d3-tooltip .tooltip-body.skill-extension .d3-icon-rune { position: absolute; top: 10px; left: -5px; }
+.d3-tooltip .subtle { color: #7B6D55; display: block; }
+
+.d3-tooltip .tooltip-extension { margin: 10px -2px 0 -2px; padding: 10px 12px; border-top: 2px solid #322A20; }
+.d3-tooltip .tooltip-extension.rune-extension { padding-left: 47px; min-height: 52px; position: relative; }
+.d3-tooltip .tooltip-extension.rune-extension .d3-icon-rune { position: absolute; top: 10px; left: -5px; }
+
+
+.d3-tooltip-item .d3-icon-item { float: left; margin-right: 10px; margin-bottom: 11px; }
+.d3-tooltip-item .item-armor-weapon { clear: right; }
+.d3-tooltip-item .item-before-effects { display: block !important; clear: both; }
+.d3-tooltip-item .item-armor-weapon { clear: right; }
+
+
+
+.d3-color-orange, .d3-color-orange a { color: #bf642f !important; }
+.d3-color-green, .d3-color-green a { color: #00ff00 !important; }
+.d3-color-blue, .d3-color-blue a { color: #6969ff !important; }
+.d3-color-white, .d3-color-white a { color: #fff !important; }
+.d3-color-yellow, .d3-color-yellow a { color: #b1a73c !important; }
+
+
+.d3-icon-rune { vertical-align: middle; }
+.d3-icon-rune span { display: block; vertical-align: top; background: no-repeat; }
+.d3-icon-rune-large span { width: 42px; height: 42px; background-image: url('/img/medium.png'); }
+.d3-icon-rune-large .rune-a { background-position: 0 0; }
+.d3-icon-rune-large .rune-b { background-position: -42px 0; }
+.d3-icon-rune-large .rune-c { background-position: -84px 0;  }
+.d3-icon-rune-large .rune-d { background-position: -126px 0; }
+.d3-icon-rune-large .rune-e { background-position: -168px 0;  }
+
+.d3-icon-item { border: 1px solid black; background: no-repeat 50% 100%; border-radius: 4px; }
+.d3-icon-item-orange { border-color: #b07b38; background-image: url('/img/orange.png'); }
+.d3-icon-item-green { border-color: #87a73d; background-image: url('/img/green.png'); }
+.d3-icon-item-blue { border-color: #6ba9ba; background-image: url('/img/blue.png'); }
+.d3-icon-item-yellow { border-color: #b1a73c; background-image: url('/img/yellow.png'); }
+.d3-icon-item-white { border-color: #513f2e; background-image: url('/img/brown.png'); }
+
+.d3-icon { display: inline-block; overflow: hidden; font-size: 1px; }
+.d3-icon-item-large .icon-item-default { width: 64px; height: 128px; }
+.d3-icon-item-large .icon-item-square { width: 64px; height: 64px; }
+.d3-icon-item .icon-item-inner { display: block; padding: 1px; background: no-repeat center center; font-size: 1px; line-height: normal; text-align: center; border-radius: 4px; overflow: hidden; }
+.d3-color-ffc7b377, .d3-color-ffc7b377 a { color: #ad835a !important; }
+.d3-color-ff00ff00, .d3-color-ff00ff00 a { color: #8bd442 !important; }
+.d3-color-ff6969ff, .d3-color-ff6969ff a { color: #7979d4 !important; }
+.d3-color-ffff8000, .d3-color-ffff8000 a { color: #bf642f !important; }
+.d3-color-ffffffff, .d3-color-ffffffff a { color: #ffffff !important; }
+.d3-color-ff696969, .d3-color-ff696969 a { color: #696969 !important; }
+
+.d3-item-properties p { margin: 0 !important; }
+.d3-item-properties ul li { margin: 1px 0; }
+.d3-item-properties ul, .d3-item-properties div { margin-top: 10px; }
+.d3-item-properties .item-type-right { float: right; text-align: right; }
+.d3-item-properties .item-type, .d3-item-properties .item-type-right { margin-top: 0; }
+.d3-item-properties .item-type { color: white; }
+.d3-item-properties .item-type, .d3-item-properties .item-type-right { margin-top: 0; }
+.d3-item-properties .item-slot { color: #909090; }
+.d3-item-properties .item-armor-weapon li { color: #909090; }
+.d3-item-properties .item-armor-weapon .value { color: #fff; }
+.d3-item-properties .big .value { font-size: 400%; line-height: 100%; font-family: "Palatino Linotype", "Times", "serif"; }
+.d3-item-properties .item-effects .item-property-category { color: #fff; padding-top: 6px; }
+.d3-item-properties .item-effects li { padding-left: 16px; background: url("/img/primary.gif") 0 3px no-repeat; }
+.d3-item-properties .item-effects li.full-socket { line-height: 18px; min-height: 18px; background: none; padding-left: 0; padding-top: 7px; white-space: nowrap; }
+.d3-item-properties .item-effects li.full-socket .jewel-effect { white-space: normal; }
+.d3-item-properties .item-effects li.full-socket .gem { float: left; width: 17px; height: 17px; margin-right: 4px; }
+.d3-item-properties .item-armor-weapon li { color: #909090; }
+.d3-item-properties .item-armor-weapon .value { color: white; }
+
+
+.tooltip-icon-bullet { display: inline-block; width: 12px; height: 12px; margin-right: 0px; vertical-align: middle; background: url('/img/bullet.gif') no-repeat; }
+
+.tooltip-icon-enchant { display: inline-block; width: 12px; height: 12px; margin-right: 0px; vertical-align: middle; background: url('/img/enchant.gif') no-repeat; }
+.tooltip-icon-utility { display: inline-block; width: 12px; height: 12px; margin-right: 0px; vertical-align: middle; background: url('/img/utility.gif') no-repeat; }
+.clear { clear: both; display: block; }
+
+
+/* 스킬창 */
+/*
+.row { width:330px; margin-left:auto; margin-right:auto; }
+.row .thumbnail img { float:left; }
+.row .thumbnail .skill-position { display:block; width:22px; height:22px; background:url('/img/skill-overlays.png')0 0; position:absolute; top:0px; left:10px; }
+*/
+
+.skill-bg { background-color: #1b1713; }
+.passive-div { width: 301px; height: 100px; margin-left: auto; margin-right: auto; margin-top:30px; }
+.passive-div .passive { list-style-type: none; margin:0; padding:0; }
+.passive li { display:inline-block; width:137px; height:45px; margin-bottom:15px;  }
+.passive li .passive-info { position: relative; }
+.passive li .passive-info .passive-name { display: inline-block; color: #c7b377; padding-left:3px; font-size:12px; padding-top:12px;}
+.passive li .passive-info .passive-icon { display:inline-block; width:41px; height:41px; padding: 5px; float:left; background: url('/img/passive-skills.png')0 0;  }
+.passive li .passive-info .passive-icon img { width: 32px; height: 32px; }
+
+.skill-div { width: 301px; height: 200px; margin-left: auto; margin-right: auto; border-bottom: 1px solid #252018; }
+.skill-div .skills { list-style-type: none; margin:0; padding:0; }
+.skills li { display:inline-block; width:137px; height:45px; margin-bottom:15px;  }
+.skills li .skill-info { position: relative; }
+/* .skills li .skill-info .img { float:left; width: 42px; height: 42px; } */
+.skills li .skill-info .skill-name { display: inline-block; color: #c7b377; padding-left:3px; font-size:12px; }
+.skills li .skill-info .skill-passive { display: inline-block; color: #796d55; padding-left:3px; font-size: 10px; vertical-align: top; }
+.skills li .skill-info .skill-icon { display:inline-block; width:42px; height:42px; float:left; }
+/* .skills li .skill-info .skill-icon-empty { background: url('/img/skill-overlays.png')0 0; background-position: -132px -41px; } */
+.skills li .skill-info .skill-position-0 { display:block; width:22px; height:22px; background:url('/img/skill-overlays.png')0 0; position:absolute; top: -5px; left: -10px; }
+.skills li .skill-info .skill-position-1 { display:block; width:22px; height:22px; background:url('/img/skill-overlays.png')0 0; position:absolute; top: -5px; left: -10px; background-position: -21px -1px; }
+.skills li .skill-info .skill-position-2 { display:block; width:22px; height:22px; background:url('/img/skill-overlays.png')0 0; position:absolute; top: -5px; left: -10px; background-position: 0px -23px; }
+.skills li .skill-info .skill-position-3 { display:block; width:22px; height:22px; background:url('/img/skill-overlays.png')0 0; position:absolute; top: -5px; left: -10px; background-position: -23px -23px; }
+.skills li .skill-info .skill-position-4 { display:block; width:22px; height:22px; background:url('/img/skill-overlays.png')0 0; position:absolute; top: -5px; left: -10px; background-position: 0px -46px; }
+.skills li .skill-info .skill-position-5 { display:block; width:22px; height:22px; background:url('/img/skill-overlays.png')0 0; position:absolute; top: -5px; left: -10px; background-position: -23px -46px; }
+
+/* 카나이함 */
+.legendary-power-wrapper { display: inline-block; padding: 0px; width: 85px; height: 140px; }
+.legendary-powers-wrapper { width:265px; margin-bottom:100px; margin-left:auto !important; margin-right:auto !important; }
+.legendary-power-container { width: 85px; height: 140px; background-repeat: no-repeat; background-position: center center; }
+.legendary-power-container.is-active { background-image: url('/img/Active-Default.png'); }
+
+.legendary-power-container .legendary-power-item { display: block; width: 85px; height: 140px; background-repeat: no-repeat; background-size:60% ;  background-position: center center; }
+.legendary-power-container.legendary-power-weapon { background-image: url('/img/Weapon-Empty.png'); }
+.legendary-power-container.legendary-power-armor { background-image: url('/img/Armor-Empty.png'); }
+.legendary-power-container.legendary-power-jewelry { background-image: url('/img/Jewelry-Empty.png'); }
+
+.hero-stats-wrapper { width:265px; margin-left:auto !important; margin-right:auto !important; }
+.hero-stats-wrapper dl { float: left;padding: 10px 0 10px 0; margin: 0; font-size;13px; border-bottom:1px solid #252018;}
+.hero-stats-wrapper .hero-stats-list dt { color: #c7b377; width:100px; text-align:left; float: left;}
+.hero-stats-wrapper .hero-stats-list dd { color: #f3e6d0; width:160px; text-align:right; float: left;}
+
+/*
+.floating { position: fixed; bottom: 0; right: 0; text-align: center; width: 40px; height: 100px;  display: none; }
+.floating span:nth-child(1) { margin-bottom: 2px !important; }
+.floating span { height:30px; width:30px; margin:5px; padding-left:3px; padding-top:3px; display: inline-block; font-size: 25px; color: #fff; background-color: #666; border-radius: 10px 10px; opacity: 0.8; }
+*/
+
+.rank-btn-block { display: none; padding-left:0;}
+.rank-btn { padding-left:8px; padding-top:2px; height:20px; width:30px; border:1px solid #e9ecef; border-radius: 2px 2px; }
+.rank_table thead > tr > th { border:0px !important; }
+.rank-fixed-on { position: fixed; top: 0; margin-left:-20px; padding-top: 10px; padding-bottom: 10px; max-width: 690px; z-index: 99999; background-color: #fff; box-shadow: 3px 5px 5px #888; }
+.tree-node-searched { border:2px solid #796d55;}
+.rankTd a, a:focus, a:hover { color: #636B71 !important; text-decoration: none !important;}
