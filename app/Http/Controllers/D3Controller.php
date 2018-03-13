@@ -224,12 +224,6 @@ class D3Controller extends Controller
         $sData = join("|",$data);
         $return = $api->get($data);
 
-        //아이피 체크
-        if($request->ip() == '125.129.25.216')
-        {
-
-        }
-
         //통신불량이거나 검색실패시 redirect 처리
         if((!empty($return['code']) && $return['code'] == 'OOPS') || $return == false)
         {
