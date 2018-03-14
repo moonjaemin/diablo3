@@ -8,11 +8,8 @@ use Illuminate\Support\Facades\Storage;
 
 class Api
 {
-
     //배틀넷 서버 목록, api key
     private $server = array('kr'=>'ko_KR','eu'=>'en_GB','us'=>'en_US');
-    private $aKey = array("sgnjxexf2zp6pmphpvjajdhbu3wb2rjh","smfr2k9jwq2mj4esw3sjkyww8j9gvnc7");
-    private $aSecret = array("ED6ufeYcNWtVYNV487YBzS7v5fEbY2Jj","BcSbjuVFCxXqmfH5xagv7AFHc7G8PBD9");
     private $key;
     private $secret;
     private $cacheTime = 10;
@@ -27,12 +24,15 @@ class Api
      */
     public function __construct()
     {
-        $randKey    = rand(0,1);
-        $this->key  = $this->aKey[$randKey];
-        $this->secret   = $this->aSecret[$randKey];
+
+        $randKey    = rand(1,2);
+        $this->key  = config('diablo3.key'.$randKey);
+        $this->secret  = config('diablo3.secret'.$randKey);
+
         $json = Storage::get('accessToken');
         $aAccessToken = json_decode($json, true);
         $this->accessKey = $aAccessToken['access_token'];
+
     }
 
     public function get($data = array())
