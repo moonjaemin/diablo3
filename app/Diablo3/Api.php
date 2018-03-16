@@ -28,7 +28,6 @@ class Api
         $randKey    = rand(1,2);
         $this->key  = config('diablo3.key'.$randKey);
         $this->secret  = config('diablo3.secret'.$randKey);
-
         $json = Storage::get('accessToken');
         $aAccessToken = json_decode($json, true);
         $this->accessKey = $aAccessToken['access_token'];
