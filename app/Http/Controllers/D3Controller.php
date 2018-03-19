@@ -98,7 +98,8 @@ class D3Controller extends Controller
 			$lastBattleTags[] = $sKey;
 			$lastBattleTags = array_slice(array_reverse($lastBattleTags),0,10);
 		}
-		else {
+		else
+        {
 			$lastBattleTags[] = $sKey;
 		}
 
@@ -183,7 +184,8 @@ class D3Controller extends Controller
 			$returns = $api->getMulti(array('server'=>$server,'battleTag'=>$battleTag,'heroIds'=>$heroIds));
 			if(!empty($returns))
 			{
-				foreach ($returns as $key => $val) {
+				foreach ($returns as $key => $val)
+                {
 					$items[$key] = $val;
 				}
 			}
@@ -244,7 +246,8 @@ class D3Controller extends Controller
 		{
 			$kanai = array();
 
-			foreach ($return['legendaryPowers'] as $key => $value) {
+			foreach ($return['legendaryPowers'] as $key => $value)
+            {
 				$kanai[$key] = $value['tooltipParams'];
 			}
 
