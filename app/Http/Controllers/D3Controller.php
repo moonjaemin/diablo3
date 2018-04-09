@@ -49,13 +49,11 @@ class D3Controller extends Controller
      * @param
      * @return
      */
-    public function index()
-    {
+    public function index() {
 
         //쿠기 가져오기
         $lastBattleTags = Cookie::get('lastBattleTags');
-        if(!empty($lastBattleTags))
-        {
+        if(!empty($lastBattleTags)) {
             $lastBattleTags = json_decode($lastBattleTags,true);
         }
 
@@ -70,16 +68,14 @@ class D3Controller extends Controller
      * @param
      * @return
      */
-    public function profile(Request $request,Api $api,$server,$battleTag)
-    {
+    public function profile(Request $request,Api $api,$server,$battleTag) {
 
         $battleTag 	= trim(urldecode($battleTag));
         $data = array('server'=>$server, 'battleTag'=>$battleTag);
         $return = $api->get($data);
 
         //통신불량이거나 검색실패시 redirect 처리
-        if((!empty($return['code']) && $return['code'] == 'NOTFOUND') || $return == false)
-		{
+        if((!empty($return['code']) && $return['code'] == 'NOTFOUND') || $return == false) {
             Alert::error('The account could not be found.');
             return redirect()->route("home");
 		}
@@ -88,18 +84,14 @@ class D3Controller extends Controller
         $lastBattleTags = Cookie::get('lastBattleTags');
         $sKey = $battleTag."|".$server;
 
-        if(!empty($lastBattleTags))
-		{
+        if(!empty($lastBattleTags)) {
 			$lastBattleTags = array_reverse(json_decode($lastBattleTags,true));
-			if(in_array($sKey,$lastBattleTags))
-			{
+			if(in_array($sKey,$lastBattleTags)) {
 				unset($lastBattleTags[array_search($sKey,$lastBattleTags)]);
 			}
 			$lastBattleTags[] = $sKey;
 			$lastBattleTags = array_slice(array_reverse($lastBattleTags),0,10);
-		}
-		else
-        {
+		} else {
 			$lastBattleTags[] = $sKey;
 		}
 
@@ -107,28 +99,24 @@ class D3Controller extends Controller
         Cookie::queue('lastBattleTags', json_encode($lastBattleTags), 1440*30);
 
         //guildName 이 있으면 guild 번호를 가져온다
-        if(!empty($return['guildName']))
-        {
+        if(!empty($return['guildName'])) {
 
             $guilds = Guild::where('name', $return['guildName'])
                                 ->where('server', $server)
                                 ->select('id')
                                 ->first();
 
-            if(is_object($guilds))
-            {
+            if(is_object($guilds)) {
                 $guildId = $guilds->id;
             }
 
-            if(!empty($guildId))
-            {
+            if(!empty($guildId)) {
                 $guildMembers = Profile::where('battle_tag','!=',$return['battleTag'])
                                         ->where('guild_id',$guildId)
                                         ->orderBy('created_at','desc')
                                         ->select('battle_tag')->paginate(10);
                 //ajax 페이징 처리
-                if($request->ajax())
-                {
+                if($request->ajax()) {
                     return view('include.members')->with([
                         'server' => $server,
                         'guildName' => (!empty($return['guildName'])) ? '&lt;'.$return['guildName'].'&gt;' : '',
@@ -136,9 +124,7 @@ class D3Controller extends Controller
                     ]);
                 }
 
-            }
-            else
-            {
+            } else {
                 $guild = new Guild;
                 $guild->name = $return['guildName'];
                 $guild->server = $server;
@@ -165,27 +151,20 @@ class D3Controller extends Controller
         $items = array();
 
 
-		foreach($return['heroes'] as $hero)
-		{
+		foreach($return['heroes'] as $hero) {
 			$heroIds[] = $hero['id'];
-			if($hero['seasonal'] == '1')
-			{
+			if($hero['seasonal'] == '1') {
 				$seasonHeroes[$hero['id']]	= $hero;
-			}
-			else
-			{
+			} else {
 				$heroes[$hero['id']] = $hero;
 			}
 		}
 
         //전설보석 조회를 위해
-		if(count($heroIds) > 0)
-		{
+		if(count($heroIds) > 0) {
 			$returns = $api->getMulti(array('server'=>$server,'battleTag'=>$battleTag,'heroIds'=>$heroIds));
-			if(!empty($returns))
-			{
-				foreach ($returns as $key => $val)
-                {
+			if(!empty($returns)) {
+				foreach ($returns as $key => $val) {
 					$items[$key] = $val;
 				}
 			}
@@ -218,8 +197,7 @@ class D3Controller extends Controller
      * @param
      * @return
      */
-    public function hero(Request $request,Api $api,$server,$battleTag,$heroId)
-    {
+    public function hero(Request $request,Api $api,$server,$battleTag,$heroId) {
 
         $battleTag 	= trim(urldecode($battleTag));
 		$data = array('server'=>$server, 'battleTag'=>$battleTag, 'heroId'=>$heroId);
@@ -227,27 +205,23 @@ class D3Controller extends Controller
         $return = $api->get($data);
 
         //통신불량이거나 검색실패시 redirect 처리
-        if((!empty($return['code']) && $return['code'] == 'OOPS') || $return == false)
-        {
+        if((!empty($return['code']) && $return['code'] == 'OOPS') || $return == false) {
             Alert::error('The hero could not be found.');
             return redirect()->back();
         }
 
 
         //아이템 상세정보가져오기
-        if(is_array($return['items']))
-		{
+        if(is_array($return['items'])) {
 			$data['items'] = 1;
 			$return['items'] = $api->get($data);
 		}
 
         //카나이
-        if(is_array($return['legendaryPowers']))
-		{
+        if(is_array($return['legendaryPowers'])) {
 			$kanai = array();
 
-			foreach ($return['legendaryPowers'] as $key => $value)
-            {
+			foreach ($return['legendaryPowers'] as $key => $value) {
 				$kanai[$key] = $value['tooltipParams'];
 			}
 
@@ -285,10 +259,8 @@ class D3Controller extends Controller
      * @param
      * @return
      */
-     public function item(Request $request, Api $api)
-     {
-        if(empty($request->code))
-        {
+     public function item(Request $request, Api $api) {
+        if(empty($request->code)) {
             return false;
         }
 
@@ -309,11 +281,9 @@ class D3Controller extends Controller
       * @return
       */
 
-      public function weapon(Request $request, Calc $calc)
-      {
+      public function weapon(Request $request, Calc $calc) {
 
-        if(!empty($request->weaponType) && !empty($request->weapon) && !empty($request->damageMin) && !empty($request->damageMax))
-        {
+        if(!empty($request->weaponType) && !empty($request->weapon) && !empty($request->damageMin) && !empty($request->damageMax)) {
             $result = $calc->weapon($request->toArray());
         }
 
@@ -326,8 +296,7 @@ class D3Controller extends Controller
        * @param
        * @return
        */
-       public function coolDown()
-       {
+       public function coolDown() {
            return view('cooldown');
        }
 
@@ -337,14 +306,12 @@ class D3Controller extends Controller
         * @param
         * @return
         */
-        public function rank(Api $api, $server, $type, $seasonal, $class, $gameType='')
-        {
+        public function rank(Api $api, $server, $type, $seasonal, $class, $gameType='') {
 
             $data = array('server'=>$server, 'type'=>$type, 'seasonal'=>$seasonal, 'gameType'=>$gameType, 'class'=>$class);
             $return = $api->get($data);
 
-            if(empty($return['row']))
-            {
+            if(empty($return['row'])) {
                 Alert::error('The rank data could not be found.');
                 return redirect()->route('home');
             }
@@ -365,6 +332,4 @@ class D3Controller extends Controller
                 'eraIndex' => $this->aEraIndex,
             ]);
         }
-
-
 }

@@ -37,13 +37,12 @@ class Calc
 
     );
 
-    public function __construct()
-    {
+    public function __construct() {
 
     }
 
-    public function weapon($data)
-    {
+    public function weapon($data) {
+
         $weaponType = $data['weaponType'];
         $weapon = preg_replace('/\D/','',$data['weapon']);
         $damageMin = preg_replace('/\D/','',$data['damageMin']);
@@ -83,8 +82,7 @@ class Calc
                                               10,
                                               $speed);
 
-        if($return['baseDamage'] < $return['damage'])
-        {
+        if($return['baseDamage'] < $return['damage']) {
             $return['top'] = "damage";
         }
         //공속변경
@@ -96,8 +94,7 @@ class Calc
                                              $damage,
                                              7);
 
-         if($return[$return['top']] < $return['speed'])
-         {
+         if($return[$return['top']] < $return['speed']) {
              $return['top'] = "speed";
          }
         //최상급
@@ -111,8 +108,8 @@ class Calc
         return $return;
     }
 
-    private function weaponCalc($as, $baseMin, $baseMax, $addMin, $addMax, $damage = 0, $speed = 0)
-    {
+    private function weaponCalc($as, $baseMin, $baseMax, $addMin, $addMax, $damage = 0, $speed = 0) {
+
         $a = ($baseMin + $baseMax) / 2;
         $b = ($addMin + $addMax) / 2;
         $c = $a + $b;
@@ -121,4 +118,5 @@ class Calc
         $f = $c * $d * $e;
         return round(($f * 10) / 10,1);
     }
+
 }

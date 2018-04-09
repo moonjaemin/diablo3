@@ -22,8 +22,7 @@ class Api
      * @param
      * @return
      */
-    public function __construct()
-    {
+    public function __construct() {
 
         $randKey    = rand(1,2);
         $this->key  = config('diablo3.key'.$randKey);
@@ -34,19 +33,15 @@ class Api
 
     }
 
-    public function get($data = array())
-    {
+    public function get($data = array()) {
+
         $cachekey = collect($data)->implode('|');
 
-        if(Cache::has($cachekey))
-        {
+        if(Cache::has($cachekey)) {
             return Cache::get($cachekey);
-        }
-        else
-        {
+        } else {
             $apiUrl = $this->makeUrl($data);
-            if(!empty($apiUrl))
-            {
+            if(!empty($apiUrl)) {
                 $client = new Guzzle(['timeout'=>30,'http_errors'=>false]);
                 $response = $client->request('GET',$apiUrl);
                 if ($response->getStatusCode() == 200) {
@@ -54,51 +49,37 @@ class Api
                     Cache::put($cachekey,$return, $this->cacheTime);
                     return $return;
                 }
-            }
-            else
-            {
+            } else {
                 return false;
             }
         }
     }
 
-    public function getMulti($data = array())
-    {
+    public function getMulti($data = array()) {
+
         $nodes = array();
         $res = array();
         $cachekeys = array();
 
-
-        if(!empty($data['battleTag']) && !empty($data['heroIds']))
-        {
-            foreach ($data['heroIds'] as $key => $value)
-            {
+        if(!empty($data['battleTag']) && !empty($data['heroIds'])) {
+            foreach ($data['heroIds'] as $key => $value) {
                 $cachekey = $data['battleTag']."|".$value.'|items';
                 $cachekeys[$value] = $cachekey;
 
-                if(Cache::has($cachekey))
-                {
+                if(Cache::has($cachekey)) {
                     $res[$value] = Cache::get($cachekey);
-                }
-                else
-                {
+                } else {
                     $nodes[$value] = $this->makeUrl(array('server'=>$data['server'],'battleTag'=>$data['battleTag'],'heroId'=>$value,'items'=>1));
                 }
             }
-        }
-        else if(!empty($data['items']))
-        {
-            foreach ($data['items'] as $key => $value)
-            {
+        } else if(!empty($data['items'])) {
+            foreach ($data['items'] as $key => $value) {
                 $cachekey = $value;
                 $cachekeys[$key] = $cachekey;
 
-                if(Cache::has($cachekey))
-                {
+                if(Cache::has($cachekey)) {
                     $res[$key] = Cache::get($cachekey);
-                }
-                else
-                {
+                } else {
                     $nodes[$key] = $this->makeUrl(array('server'=>$data['server'],'itemCode'=>$value));
                 }
             }
@@ -108,8 +89,7 @@ class Api
 
         $requestPromises = [];
 
-        foreach($nodes as $i => $url)
-        {
+        foreach($nodes as $i => $url) {
             $requestPromises[$i] = $client->getAsync($url);
         }
 
@@ -122,8 +102,7 @@ class Api
 
                     $return = json_decode($response->getBody(),true);
 
-                    if(!empty($cachekeys[$key]))
-                    {
+                    if(!empty($cachekeys[$key])) {
                         Cache::put($cachekeys[$key],$return, $this->cacheTime);
                     }
 
@@ -133,52 +112,41 @@ class Api
         }
 
         return $res;
-
     }
 
 
 
-    private function makeUrl($data)
-    {
-        //$url = "https://".$data['server'].".api.battle.net/d3/";
+    private function makeUrl($data) {
+
         $url = "https://".$data['server'].".api.battle.net";
         $queryData = array('locale'=>$this->server[$data['server']],'apikey'=>$this->key);
         $queryString = http_build_query($queryData);
 
-        if(!empty($data['battleTag']))
-        {
+        if(!empty($data['battleTag'])) {
             $battleTag = str_replace('#', '-', $data['battleTag']);
 
             $url .= "/d3/profile/".$battleTag."/";
 
-            if(!empty($data['heroId']))
-            {
+            if(!empty($data['heroId'])) {
                 $url .= "hero/".$data['heroId'];
             }
 
-            if((isset($data['items'])) && $data['items'] == true)
-            {
+            if((isset($data['items'])) && $data['items'] == true) {
                 $url .= "/items";
             }
 
             $url .= "?".$queryString;
 
             return $url;
-        }
-        else if(!empty($data['itemCode']))
-        {
+        } else if(!empty($data['itemCode'])) {
             $url .= "/d3/data/".$data['itemCode'];
             $url .= "?".$queryString;
             return $url;
-        }
-        else if(!empty($data['seasonal']) && !empty($data['class']))
-        {
-
+        } else if(!empty($data['seasonal']) && !empty($data['class'])) {
             $url .= "/data/d3/";
             $url .= $data['type']."/".$data['seasonal']."/leaderboard/rift";
 
-            if($data['gameType'] == 'hardcore')
-            {
+            if($data['gameType'] == 'hardcore') {
                 $url .= "-".$data['gameType'];
             }
 
@@ -186,13 +154,9 @@ class Api
             $url .= "?access_token=".$this->accessKey;
 
             return $url;
-        }
-        else
-        {
+        } else {
             return false;
         }
-
-
     }
 
     /**
@@ -201,19 +165,15 @@ class Api
      * @param
      * @return
      */
-    public function getToken()
-    {
+    public function getToken() {
         $tokenUrl = "https://kr.battle.net/oauth/token?grant_type=client_credentials&client_id=".$this->key."&client_secret=".$this->secret;
 
         $client = new Guzzle(['timeout'=>30,'http_errors'=>false]);
         $response = $client->request('GET', $tokenUrl);
 
-        if ($response->getStatusCode() == 200)
-        {
+        if ($response->getStatusCode() == 200) {
             Storage::put('accessToken', $response->getBody());
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
@@ -224,8 +184,7 @@ class Api
      * @param
      * @return
      */
-    public  function setCurrentIndex()
-    {
+    public  function setCurrentIndex() {
 
         $nodes = array(
             'https://kr.api.battle.net/data/d3/season/?access_token='.$this->accessKey,
@@ -235,8 +194,7 @@ class Api
         $client = new Guzzle(['timeout'=>10,'http_errors'=>false]);
 
         $requestPromises = [];
-        foreach($nodes as $i => $url)
-        {
+        foreach($nodes as $i => $url) {
             $requestPromises[$i] = $client->getAsync($url);
         }
 
@@ -246,7 +204,6 @@ class Api
             if ($result['state'] === 'fulfilled') {
                 $response = $result['value'];
                 if ($response->getStatusCode() == 200) {
-
                     $return = json_decode($response->getBody(),true);
                     $res[$key] = $return;
                 }
@@ -258,10 +215,6 @@ class Api
         $aCurrent['current_era']    = $res['1']['current_era'];
 
         Storage::put('currentIndex', json_encode($aCurrent));
-
     }
-
-
-
 
 }
