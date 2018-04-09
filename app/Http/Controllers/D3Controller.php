@@ -49,7 +49,8 @@ class D3Controller extends Controller
      * @param
      * @return
      */
-    public function index() {
+    public function index()
+    {
 
         //쿠기 가져오기
         $lastBattleTags = Cookie::get('lastBattleTags');
@@ -68,7 +69,8 @@ class D3Controller extends Controller
      * @param
      * @return
      */
-    public function profile(Request $request,Api $api,$server,$battleTag) {
+    public function profile(Request $request,Api $api,$server,$battleTag)
+    {
 
         $battleTag 	= trim(urldecode($battleTag));
         $data = array('server'=>$server, 'battleTag'=>$battleTag);
@@ -197,7 +199,8 @@ class D3Controller extends Controller
      * @param
      * @return
      */
-    public function hero(Request $request,Api $api,$server,$battleTag,$heroId) {
+    public function hero(Request $request,Api $api,$server,$battleTag,$heroId)
+    {
 
         $battleTag 	= trim(urldecode($battleTag));
 		$data = array('server'=>$server, 'battleTag'=>$battleTag, 'heroId'=>$heroId);
@@ -259,7 +262,9 @@ class D3Controller extends Controller
      * @param
      * @return
      */
-     public function item(Request $request, Api $api) {
+     public function item(Request $request, Api $api)
+     {
+
         if(empty($request->code)) {
             return false;
         }
@@ -281,7 +286,8 @@ class D3Controller extends Controller
       * @return
       */
 
-      public function weapon(Request $request, Calc $calc) {
+      public function weapon(Request $request, Calc $calc)
+      {
 
         if(!empty($request->weaponType) && !empty($request->weapon) && !empty($request->damageMin) && !empty($request->damageMax)) {
             $result = $calc->weapon($request->toArray());
@@ -296,7 +302,8 @@ class D3Controller extends Controller
        * @param
        * @return
        */
-       public function coolDown() {
+       public function coolDown()
+       {
            return view('cooldown');
        }
 
@@ -306,7 +313,8 @@ class D3Controller extends Controller
         * @param
         * @return
         */
-        public function rank(Api $api, $server, $type, $seasonal, $class, $gameType='') {
+        public function rank(Api $api, $server, $type, $seasonal, $class, $gameType='')
+        {
 
             $data = array('server'=>$server, 'type'=>$type, 'seasonal'=>$seasonal, 'gameType'=>$gameType, 'class'=>$class);
             $return = $api->get($data);

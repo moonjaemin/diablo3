@@ -37,11 +37,13 @@ class Calc
 
     );
 
-    public function __construct() {
+    public function __construct()
+    {
 
     }
 
-    public function weapon($data) {
+    public function weapon($data)
+    {
 
         $weaponType = $data['weaponType'];
         $weapon = preg_replace('/\D/','',$data['weapon']);
@@ -108,7 +110,8 @@ class Calc
         return $return;
     }
 
-    private function weaponCalc($as, $baseMin, $baseMax, $addMin, $addMax, $damage = 0, $speed = 0) {
+    private function weaponCalc($as, $baseMin, $baseMax, $addMin, $addMax, $damage = 0, $speed = 0)
+    {
 
         $a = ($baseMin + $baseMax) / 2;
         $b = ($addMin + $addMax) / 2;

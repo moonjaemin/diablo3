@@ -22,7 +22,8 @@ class Api
      * @param
      * @return
      */
-    public function __construct() {
+    public function __construct()
+    {
 
         $randKey    = rand(1,2);
         $this->key  = config('diablo3.key'.$randKey);
@@ -33,7 +34,8 @@ class Api
 
     }
 
-    public function get($data = array()) {
+    public function get($data = array())
+    {
 
         $cachekey = collect($data)->implode('|');
 
@@ -55,7 +57,8 @@ class Api
         }
     }
 
-    public function getMulti($data = array()) {
+    public function getMulti($data = array())
+    {
 
         $nodes = array();
         $res = array();
@@ -116,7 +119,8 @@ class Api
 
 
 
-    private function makeUrl($data) {
+    private function makeUrl($data)
+    {
 
         $url = "https://".$data['server'].".api.battle.net";
         $queryData = array('locale'=>$this->server[$data['server']],'apikey'=>$this->key);
@@ -165,7 +169,8 @@ class Api
      * @param
      * @return
      */
-    public function getToken() {
+    public function getToken()
+    {
         $tokenUrl = "https://kr.battle.net/oauth/token?grant_type=client_credentials&client_id=".$this->key."&client_secret=".$this->secret;
 
         $client = new Guzzle(['timeout'=>30,'http_errors'=>false]);
@@ -184,7 +189,8 @@ class Api
      * @param
      * @return
      */
-    public  function setCurrentIndex() {
+    public  function setCurrentIndex()
+    {
 
         $nodes = array(
             'https://kr.api.battle.net/data/d3/season/?access_token='.$this->accessKey,
