@@ -51,7 +51,6 @@ class D3Controller extends Controller
      */
     public function index()
     {
-
         //쿠기 가져오기
         $lastBattleTags = Cookie::get('lastBattleTags');
         if(!empty($lastBattleTags)) {
