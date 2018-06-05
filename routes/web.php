@@ -30,7 +30,7 @@ Route::post('item', 'D3Controller@item');
 
 
 ///test
-Route::post('makeboy', 'D3Controller@makeboy');
+Route::post('makeboy', 'D3Controller@makeboy111');
 
 //rank
 Route::prefix('rank')->group(function () {
