@@ -28,6 +28,10 @@ Route::prefix('calc')->group(function () {
 //item
 Route::post('item', 'D3Controller@item');
 
+
+///test
+Route::post('makeboy', 'D3Controller@makeboy');
+
 //rank
 Route::prefix('rank')->group(function () {
     Route::get('{server}/{type}/{seasonal}/{class}/{gameType?}', 'D3Controller@rank');

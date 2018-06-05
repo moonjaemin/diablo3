@@ -22,7 +22,7 @@ class D3Controller extends Controller
 	    'necromancer'	=>'강령술사',
 	    'witch-doctor'	=>'부두술사',
 	    'wizard'		=>'마법사'
-	);
+    );
 
 	public $classRank = array(
 		'barbarian'     =>'야만용사',
